@@ -1,5 +1,6 @@
 import socket
 import hashlib
+import config
 
 def encrypt(str):
 	encoded_input = str.encode('utf-8')
@@ -8,8 +9,8 @@ def encrypt(str):
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 HOST = socket.gethostname()
-PORT = 8323
-MAX_REQUESTS = 10
+PORT = config.PORT
+MAX_REQUESTS = config.MAX_REQUESTS
 
 server_socket.bind((HOST, PORT))
 server_socket.listen(MAX_REQUESTS)
